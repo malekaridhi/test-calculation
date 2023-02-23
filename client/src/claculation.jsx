@@ -35,9 +35,9 @@ const Calculation = () => {
     console.log("shit this is the saved data", data.empNet);
   };
   return (
-    <div className="w-full max-w-6xl mx-auto px-4 m-9">
-      <form className="w-full max-w-lg">
-        <div className="flex flex-wrap -mx-3 mb-2">
+    <div className="w-full max-w-6xl mx-auto px-4 ">
+      <form className="flex flex-col space-y-2 w-fit mx-auto mb-14 shadow-2xl rounded-lg m-9 ">
+        <div className="flex flex-wrap -mx-3 px-4 m-9">
           <div className="w-full md:w-1/3 px-3 mb-6 md:mb-0">
             <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
               Montant d'achat
@@ -74,12 +74,12 @@ const Calculation = () => {
           <button
             type="submit"
             onClick={handleSubmit}
-            className=" ml-3 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+            className=" ml-3 bg-[#f7ab0a] py-5 px-16 rounded-md text-black font-bold text-sm"
           >
             Submit
           </button>
         </div>
-        <div className="flex flex-wrap -mx-3 mb-6">
+        <div className="flex flex-wrap mx-1 m-9">
           <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
             <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
               le montant à emprunter
@@ -88,7 +88,7 @@ const Calculation = () => {
               className="appearance-none block w-full bg-gray-200 text-gray-700 border py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
               type="number"
               placeholder="le montant à emprunter"
-              value={data.empNet || ''}
+              value={data.empNet || ""}
               readOnly
             />
           </div>
@@ -106,22 +106,23 @@ const Calculation = () => {
           </div>
         </div>
       </form>
-     
+<div className="shadow-2xl rounded-lg p-2 mb-14">
+
       <div className="grid grid-cols-4 ">
-        <div className="...">
+        <div>
           {" "}
-          <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
-            <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+          <table className="w-full text-sm text-left text-gray-500">
+            <thead className=" block uppercase tracking-wide text-gray-700 text-xs font-bold bg-gray-50 ">
               <tr>
-                <th scope="col" className=" py-3">
+                <th scope="col" className="py-3 m">
                   Sold Debut
                 </th>
               </tr>
             </thead>
             <tbody>
-              <tr className="bg-white   dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+              <tr className="bg-white hover:bg-gray-50  ">
                 {data.soldDeb?.map((m, i) => (
-                  <tr key={i} className="bg-white   dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                  <tr key={i} className="bg-white text-lg w-full hover:bg-gray-50 ">
                     {m}
                   </tr>
                 ))}
@@ -129,10 +130,10 @@ const Calculation = () => {
             </tbody>
           </table>
         </div>
-        <div className="...">
+        <div>
           {" "}
-          <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
-            <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+          <table className="w-full text-sm text-left text-gray-500">
+            <thead className="block uppercase tracking-wide text-gray-700 text-xs font-bold bg-gray-50 ">
               <tr>
                 <th scope="col" className=" py-3">
                   Interet
@@ -140,9 +141,9 @@ const Calculation = () => {
               </tr>
             </thead>
             <tbody>
-              <tr className="bg-white   dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+              <tr className="bg-white    hover:bg-gray-50 ">
                 {data.int?.map((m, i) => (
-                  <tr key={i} className="bg-white   dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                  <tr key={i} className="bg-white text-lg    hover:bg-gray-50 ">
                     {m}
                   </tr>
                 ))}
@@ -150,9 +151,9 @@ const Calculation = () => {
             </tbody>
           </table>
         </div>
-        <div className="...">
-          <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
-            <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+        <div>
+          <table className="w-full text-sm text-left text-gray-500">
+            <thead className="block uppercase tracking-wide text-gray-700 text-xs font-bold bg-gray-50 ">
               <tr>
                 <th scope="col" className=" py-3">
                   Capitale Remboursé
@@ -160,9 +161,9 @@ const Calculation = () => {
               </tr>
             </thead>
             <tbody>
-              <tr className="bg-white   dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+              <tr className="bg-white    hover:bg-gray-50 ">
                 {data.capitRemb?.map((m, i) => (
-                  <tr key={i}  className="bg-white   dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                  <tr key={i} className="bg-white  text-lg   hover:bg-gray-50 ">
                     {m}
                   </tr>
                 ))}
@@ -170,25 +171,29 @@ const Calculation = () => {
             </tbody>
           </table>
         </div>
-        <div className="..."> <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
-            <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+        <div>
+          {" "}
+          <table className="w-full text-sm text-left text-gray-500">
+            <thead className="block uppercase tracking-wide text-gray-700 text-xs font-bold bg-gray-50 ">
               <tr>
                 <th scope="col" className=" py-3">
-                Sold Fin
+                  Sold Fin
                 </th>
               </tr>
             </thead>
             <tbody>
-              <tr className="bg-white content-center dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+              <tr className="bg-white content-center  hover:bg-gray-50 ">
                 {data.soldFinn?.map((m, i) => (
-                  <tr key={i} className="bg-white text-center dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                  <tr key={i} className="bg-white text-lg  hover:bg-gray-50 ">
                     {m}
                   </tr>
                 ))}
               </tr>
             </tbody>
-          </table></div>
+          </table>
+        </div>
       </div>
+</div>
     </div>
   );
 };
